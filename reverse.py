@@ -21,7 +21,7 @@ for (dirpath, dirnames, filenames) in os.walk('./' + folder, topdown=False):
             os.rename(dirpath+"/"+dirname, dirpath+"/"+"{{app_name}}")
 
     for filename in filenames:
-        if not filename.endswith(".py") or not filename.endswith(".js") :
+        if filename.endswith(".pyc"):
             continue
 
         new_file_contents = ""

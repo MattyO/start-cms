@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from testapp import settings 
+from {{app_name}} import settings 
 
 
 from django.contrib import admin
