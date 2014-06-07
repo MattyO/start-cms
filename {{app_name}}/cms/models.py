@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from {{app_name}} import settings
+from <%= app_name %> import settings
 
 # Create your models here.
 class Page(models.Model):

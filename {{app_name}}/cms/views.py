@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
 from common.helpers import jsonify, resolve_http_method
 
-from {{app_name}} import settings
+from <%= app_name %> import settings
 from cms.helpers import nav
 from cms.models import Page, UploadedMedia, MediaCollection
 from cms import page_data
