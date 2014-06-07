@@ -12,7 +12,7 @@ args = parser.parse_args()
 
 template_data = json.loads(args.template_data)
 
-exten_to_ignore = ['pyc', 'eot', 'ttf', 'woff', 'zip', 'sqlite3']
+exten_to_ignore = ['pyc', 'eot', 'ttf', 'woff', 'zip', 'sqlite3', 'jpg', 'gif','png', '_html', 'js']
 jinga_config = {
             'block_start_string' : "<%",
             'block_end_string' : "%>",
@@ -28,14 +28,14 @@ for (dirpath, dirnames, filenames) in os.walk('./' + args.folder, topdown=False)
 
 
     for filename in filenames:
-        print  os.path.join(dirname, filename)
+        print  os.path.join(dirpath, filename)
         if filename.split('.')[-1] in exten_to_ignore:
             continue
         fileobj = open(dirpath + "/" + filename, 'r')
         file_contents = fileobj.read()
         fileobj.close()
         print filename
-        template = Template(file_contents)
+        template = Template(file_contents, **jinga_config )
         with open(dirpath + "/" + filename, 'w') as f:
             f.write(template.render(template_data))
 
